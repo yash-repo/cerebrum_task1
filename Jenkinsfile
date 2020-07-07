@@ -2,6 +2,14 @@ pipeline {
 	agent any
 	
 	stages{
+		stage('Maven Build'){
+			steps{
+				sh "mvn clean package"
+				
+			}
+		}
+		
+		
 		stage('Build Docker Image'){
 			steps{
 				sh "sudo docker build -t 21031998/jenkins:latest . "
@@ -17,12 +25,7 @@ pipeline {
 				}	
 			}
 		}
-		stage('Maven Build'){
-			steps{
-				sh "mvn clean package"
-				
-			}
-		}
+
 	
 	}
 }
