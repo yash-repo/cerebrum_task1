@@ -5,10 +5,11 @@ RUN wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key |  apt-key 
 RUN echo  'deb https://pkg.jenkins.io/debian-stable binary/' >> /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get install jenkins openjdk-8-jdk  -y
+RUN apt install sudo -y
 
 EXPOSE 8080
 
-RUN echo 'jenkins ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+# RUN echo 'jenkins ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN echo  'rm -f /var/run/jenkins.pid' >> /root/.bashrc
 RUN echo  '/etc/init.d/jenkins start' >> /root/.bashrc
 
