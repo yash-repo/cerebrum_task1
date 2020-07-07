@@ -2,6 +2,16 @@ pipeline {
 	agent any
 	
 	stages{
+		stage('Git Clone') {
+			steps{
+				git credentialsId: '05e80141-1d58-44d5-a4d2-07a43ca7d917', url: 'https://github.com/yash-repo/devops_task1.git'
+			
+			}
+		
+		}
+		
+		
+		
 		stage('Build Docker Image'){
 			steps{
 				sh "sudo docker build -t 21031998/jenkins:latest . "
