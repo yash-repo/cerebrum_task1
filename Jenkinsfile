@@ -13,7 +13,7 @@ pipeline {
 				withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerhubpwd')]) {
 
 				sh "sudo docker login -u 21031998 -p ${dockerhubpwd}"
-				sh "sudo docker push jenkins:latest"
+				sh "sudo docker push 21031998/jenkins:latest"
 				}	
 			}
 		}
