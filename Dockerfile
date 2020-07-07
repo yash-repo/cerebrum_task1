@@ -8,6 +8,7 @@ RUN apt-get install jenkins openjdk-8-jdk  -y
 
 EXPOSE 8080
 
+RUN echo 'jenkins ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN echo  'rm -f /var/run/jenkins.pid' >> /root/.bashrc
 RUN echo  '/etc/init.d/jenkins start' >> /root/.bashrc
 
