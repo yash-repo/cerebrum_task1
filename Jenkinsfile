@@ -4,7 +4,7 @@ pipeline {
 	stages{
 		stage('Build Docker Image'){
 			steps{
-				sh "docker build -t jenkins:latest . "
+				sh "sudo docker build -t jenkins:latest . "
 				
 			}
 		}	
@@ -12,8 +12,8 @@ pipeline {
 			steps{
 				withCredentials([string(credentialsId: 'docker-hub', variable: 'dockerhubpwd')]) {
 
-				sh "docker login -u 21031998 -p ${dockerhubpwd}"
-				sh "docker push jenkins:latest"
+				sh "sudo docker login -u 21031998 -p ${dockerhubpwd}"
+				sh "sudo docker push jenkins:latest"
 				}	
 			}
 		}
