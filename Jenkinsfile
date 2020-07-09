@@ -4,7 +4,7 @@ pipeline {
 	stages{
 		stage('Build Docker Image'){
 			steps{
-				sh "sudo docker build -t 21031998/jenkins:latest . "
+				sh "docker build -t 21031998/jenkins:latest . "
 				
 			}
 		}	
